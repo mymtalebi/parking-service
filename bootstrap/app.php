@@ -38,6 +38,8 @@ $app = new Laravel\Lumen\Application(
 |
 */
 
+$app->bind(App\Services\WorkloadAssignmentInterface::class, App\Services\WorkloadAssignmentService::class);
+
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
@@ -60,6 +62,8 @@ $app->singleton(
 */
 
 $app->configure('app');
+$app->configure('car');
+$app->configure('employee');
 
 /*
 |--------------------------------------------------------------------------
