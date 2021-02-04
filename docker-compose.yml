@@ -1,0 +1,24 @@
+version: '3'
+services:
+  app:
+    container_name: parking-service
+    build:
+      context: ./
+      dockerfile: ./.docker/Dockerfile
+    command: "bash -c \"composer install --no-plugins --no-scripts && apache2-foreground\""
+    volumes:
+      - ".:/var/www/html"
+    ports:
+      - "8090:80"
+    environment:
+      APP_ENV: local
+      APP_DEBUG: 'true'
+      APP_KEY: 5de5463e57f4e5e4e699d62b5fa84bf9
+      APP_LOCALE: en
+      APP_FALLBACK_LOCALE: en
+    networks:
+        default:
+          aliases:
+            - parking-service
+networks:
+  default:
