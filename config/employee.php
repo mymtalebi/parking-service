@@ -10,9 +10,5 @@ return [
             'name' => 'B',
             'commissionRate' => 15,
         ],
-        [
-            'name' => 'C',
-            'commissionRate' => 13,
-        ],
     ],
 ];
